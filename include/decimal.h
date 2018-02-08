@@ -134,6 +134,7 @@ enum {
 // Class definitions
 // ----------------------------------------------------------------------------
 template<int Prec> struct DecimalFactor {
+    static_assert(Prec <= max_decimal_points, "Cannot support decimal points greater than max_decimal_points");
     static const int64 value = 10 * DecimalFactor<Prec - 1>::value;
 };
 
